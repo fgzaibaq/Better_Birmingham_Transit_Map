@@ -2427,6 +2427,8 @@
             x = L.geoJSON(obj2.gcd).addTo(map);
             var label = typeof obj2.gcd.properties.label === 'undefined' ? obj2.gcd.properties.display_name : obj2.gcd.properties.label;
             obj3.marker = L.marker(x.getLayers()[0].getLatLng()).bindPopup(label).addTo(map);
+	    var isMobile = window.innerWidth <= 768;
+	    var startZoom = isMobile ? 11 : 12;
             map.setView(x.getLayers()[0].getLatLng(), 17);
             z = typeof e.choice.properties.label === 'undefined'? e.choice.properties.display_name : e.choice.properties.label;
             console.log(e);
