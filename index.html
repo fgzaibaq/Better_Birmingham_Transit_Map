@@ -2511,6 +2511,9 @@
         });
         lay.addTo(map);
 	lay.collapseAll();
+	setTimeout(function() {
+    lay.collapseAll(); // collapses all groups
+    }, 50);
         setBounds();
         </script>        
     </body>
