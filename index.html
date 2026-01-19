@@ -2517,8 +2517,10 @@
 	var startCenter = [33.4885, -86.8352];
 	map.whenReady(function() {
     		if (!window.location.hash) {
-			map.setView(startCenter, startZoom);;
-	}
+			setTimeout(function() {
+            			map.setView(startCenter, startZoom);
+        		}, 500);
+		}
 	});
         </script>        
     </body>
