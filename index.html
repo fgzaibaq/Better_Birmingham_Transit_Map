@@ -179,7 +179,9 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
             if (bounds_group.getLayers().length) {
-                map.fitBounds(bounds_group.getBounds());
+                if (!window.location.hash) { 
+            		map.fitBounds(bounds_group.getBounds());
+        	}
             }
             map.setMaxBounds(map.getBounds());
         }
@@ -2513,7 +2515,9 @@
 	var isMobile = window.innerWidth <= 768;
 	var startZoom = isMobile ? 9 : 11;
 	map.whenReady(function() {
-    	map.setZoom(startZoom);
+    		if (!window.location.hash) {
+		map.setZoom(startZoom);
+	}
 	});
         </script>        
     </body>
