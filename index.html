@@ -182,6 +182,7 @@
                 map.fitBounds(bounds_group.getBounds());
             }
             map.setMaxBounds(map.getBounds());
+            map.setMinZoom(map.getZoom());
         }
         map.createPane('pane_OpenStreetMap_0');
         map.getPane('pane_OpenStreetMap_0').style.zIndex = 400;
@@ -2510,11 +2511,6 @@
         });
         lay.addTo(map);
         setBounds();
-	var isMobile = window.innerWidth <= 768;
-	var startZoom = isMobile ? 9 : 12;
-	map.whenReady(function() {
-    	map.setZoom(startZoom);
-	});
         </script>        
     </body>
 </html>
