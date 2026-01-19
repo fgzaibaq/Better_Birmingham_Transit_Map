@@ -2515,12 +2515,11 @@
 	var isMobile = window.innerWidth <= 768;
 	var startZoom = isMobile ? 9 : 12;
 	var startCenter = [33.4885, -86.8352];
-	var hash = new L.Hash(map);
 	map.whenReady(function() {
     		if (!window.location.hash) {
 			setTimeout(function() {
             			map.setView(startCenter, startZoom);
-        		}, 100);
+        		}, 50);
 		}
 	});
         </script>        
