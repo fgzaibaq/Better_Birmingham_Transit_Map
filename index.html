@@ -97,7 +97,7 @@
             }
         }
         var map = L.map('map', {
-            zoomControl:false, maxZoom:17, minZoom:10
+            zoomControl:false, maxZoom:17, minZoom:9
         })
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
@@ -182,7 +182,6 @@
                 map.fitBounds(bounds_group.getBounds());
             }
             map.setMaxBounds(map.getBounds());
-            map.setMinZoom(map.getZoom());
         }
         map.createPane('pane_OpenStreetMap_0');
         map.getPane('pane_OpenStreetMap_0').style.zIndex = 400;
@@ -190,7 +189,7 @@
             pane: 'pane_OpenStreetMap_0',
             opacity: 1.0,
             attribution: '',
-            minZoom: 10,
+            minZoom: 9,
             maxZoom: 17,
             minNativeZoom: 0,
             maxNativeZoom: 19
@@ -2511,6 +2510,11 @@
         });
         lay.addTo(map);
         setBounds();
+	var isMobile = window.innerWidth <= 768;
+	var startZoom = isMobile ? 9 : 12;
+	map.whenReady(function() {
+    	map.setZoom(startZoom);
+	});
         </script>        
     </body>
 </html>
