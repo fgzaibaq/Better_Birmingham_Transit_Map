@@ -97,7 +97,7 @@
             }
         }
         var map = L.map('map', {
-            zoomControl:false, maxZoom:17, minZoom:10
+            zoomControl:false, maxZoom:17, minZoom:9
         })
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
@@ -190,7 +190,7 @@
             pane: 'pane_OpenStreetMap_0',
             opacity: 1.0,
             attribution: '',
-            minZoom: 10,
+            minZoom: 9,
             maxZoom: 17,
             minNativeZoom: 0,
             maxNativeZoom: 19
@@ -2427,8 +2427,6 @@
             x = L.geoJSON(obj2.gcd).addTo(map);
             var label = typeof obj2.gcd.properties.label === 'undefined' ? obj2.gcd.properties.display_name : obj2.gcd.properties.label;
             obj3.marker = L.marker(x.getLayers()[0].getLatLng()).bindPopup(label).addTo(map);
-	    var isMobile = window.innerWidth <= 768;
-	    var startZoom = isMobile ? 10 : 13;
             map.setView(x.getLayers()[0].getLatLng(), 17);
             z = typeof e.choice.properties.label === 'undefined'? e.choice.properties.display_name : e.choice.properties.label;
             console.log(e);
